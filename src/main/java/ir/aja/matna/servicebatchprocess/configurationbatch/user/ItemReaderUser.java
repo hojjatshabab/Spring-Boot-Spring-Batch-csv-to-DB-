@@ -1,7 +1,6 @@
 package ir.aja.matna.servicebatchprocess.configurationbatch.user;
 
-import ir.aja.matna.servicebatchprocess.model.Order;
-import ir.aja.matna.servicebatchprocess.model.User;
+import ir.aja.matna.servicebatchprocess.configurationbatch.user.model.User;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
@@ -21,7 +20,7 @@ public class ItemReaderUser {
         FlatFileItemReader<User> itemReader = new FlatFileItemReader<>();
         itemReader.setLinesToSkip(1);
         itemReader.setName("CSV-Reader");
-        itemReader.setResource(new FileSystemResource("/data/New folder/user.csv"));
+        itemReader.setResource(new FileSystemResource("src/main/resources/csv-file/user.csv"));
         itemReader.setLineMapper(lineMapper());
         itemReader.setSaveState(false);
         return itemReader;

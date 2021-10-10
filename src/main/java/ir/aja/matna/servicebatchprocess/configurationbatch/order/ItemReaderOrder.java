@@ -1,6 +1,6 @@
 package ir.aja.matna.servicebatchprocess.configurationbatch.order;
 
-import ir.aja.matna.servicebatchprocess.model.Order;
+import ir.aja.matna.servicebatchprocess.configurationbatch.order.model.Order;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
@@ -21,7 +21,7 @@ public class ItemReaderOrder{
         FlatFileItemReader<Order> itemReader = new FlatFileItemReader<>();
         itemReader.setLinesToSkip(1);
         itemReader.setName("CSV-Reader");
-        itemReader.setResource(new FileSystemResource("/data/New folder/shipped_orders.csv"));
+        itemReader.setResource(new FileSystemResource("src/main/resources/csv-file/shipped_orders.csv"));
         itemReader.setLineMapper(lineMapper());
         itemReader.setSaveState(false);
         return itemReader;

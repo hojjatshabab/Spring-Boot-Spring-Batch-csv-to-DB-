@@ -1,6 +1,6 @@
 package ir.aja.matna.servicebatchprocess.configurationbatch.order;
 
-import ir.aja.matna.servicebatchprocess.model.Order;
+import ir.aja.matna.servicebatchprocess.configurationbatch.order.model.Order;
 import lombok.Data;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -9,14 +9,10 @@ import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
-import java.util.concurrent.ThreadPoolExecutor;
 
 @EnableBatchProcessing
 @Configuration
@@ -39,8 +35,8 @@ public class MainBatchProcessOrder {
     }
 
     @Bean
-    public Step stepProcess() {
-        return stepBuilderFactory.get("stepProcess")
+    public Step stepOrder() {
+        return stepBuilderFactory.get("stepOrder")
                 .<Order, Order>chunk(100000)
                 .reader(itemReader)
                 .writer(itemWriter)
@@ -48,10 +44,10 @@ public class MainBatchProcessOrder {
                 .build();
     }
 
-    @Bean("jobProcess")
-    public Job jobProcess() {
-        return jobBuilderFactory.get("jobProcess")
-                .start(stepProcess()).build();
+    @Bean
+    public Job jobOrder() {
+        return jobBuilderFactory.get("jobOrder")
+                .start(stepOrder()).build();
     }
 
 }

@@ -1,6 +1,6 @@
 package ir.aja.matna.servicebatchprocess.configurationbatch.order;
 
-import ir.aja.matna.servicebatchprocess.model.Order;
+import ir.aja.matna.servicebatchprocess.configurationbatch.order.model.Order;
 import lombok.Data;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;
@@ -16,7 +16,7 @@ public class ItemWriterOrder{
     private final DataSource dataSource;
 
     public static String INSERT_ORDER_SQL = "insert into "
-            + "SHIPPED_ORDER_OUTER"
+            + "shipped_order"
             + "(order_id, first_name, last_name, email, item_id, item_name, cost, ship_date)"
             + " values(:orderId, :firstName, :lastName, :email, :itemId, :itemName, :cost, :shipDate)";
 

@@ -1,4 +1,4 @@
-package ir.aja.matna.servicebatchprocess.model;
+package ir.aja.matna.servicebatchprocess.configurationbatch.user.model;
 
 import lombok.Data;
 

@@ -1,7 +1,6 @@
 package ir.aja.matna.servicebatchprocess.configurationbatch.user;
 
-import ir.aja.matna.servicebatchprocess.model.Order;
-import ir.aja.matna.servicebatchprocess.model.User;
+import ir.aja.matna.servicebatchprocess.configurationbatch.user.model.User;
 import lombok.Data;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.builder.JdbcBatchItemWriterBuilder;

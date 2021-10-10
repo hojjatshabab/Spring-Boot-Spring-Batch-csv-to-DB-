@@ -26,10 +26,14 @@ public class LoadController {
     private final JobLauncher jobLauncher;
     private final Job job;
 
-    public LoadController(@Qualifier("jobProcess") Job job, JobLauncher jobLauncher) {
+    public LoadController(@Qualifier("jobOrder") Job job, JobLauncher jobLauncher) {
         this.job = job;
         this.jobLauncher = jobLauncher;
     }
+    /*public LoadController(@Qualifier("jobUser") Job job, JobLauncher jobLauncher) {
+        this.job = job;
+        this.jobLauncher = jobLauncher;
+    }*/
 
     @GetMapping
     public BatchStatus load() throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
@@ -51,5 +55,6 @@ public class LoadController {
         return jobExecution.getStatus();
 
     }
+
 }
 
